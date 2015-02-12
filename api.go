@@ -51,10 +51,15 @@ type ApiData struct {
 type Config struct {
 	// Number of workers (simultaneous connections)
 	Workers int
+
 	// Timeout for HTTP requests
 	Timeout time.Duration
+
 	// Debug mode
 	Debug bool
+
+	// Http client override
+	Client http.Client
 }
 
 // Default configuration
@@ -71,7 +76,8 @@ func Get(u, accessToken string, cfg Config) (*Api, error) {
 		URL:         u,
 		Config:      cfg,
 		queue:       make(chan work),
-		client:      http.Client{Timeout: cfg.Timeout},
+		client:      cfg.Client,
+		// client:      http.Client{Timeout: cfg.Timeout},
 	}
 	api.Data.Refs = make([]Ref, 0, 128)
 	err := api.call(api.URL, map[string]string{}, &api.Data)
