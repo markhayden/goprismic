@@ -7,9 +7,9 @@ import (
 
 	"launchpad.net/gocheck"
 
-	"github.com/SoCloz/goprismic/fragment/block"
-	"github.com/SoCloz/goprismic/fragment/link"
-	"github.com/SoCloz/goprismic/test"
+	"github.com/markhayden/goprismic/fragment/block"
+	"github.com/markhayden/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/test"
 )
 
 func Test(t *testing.T) { gocheck.TestingT(t) }

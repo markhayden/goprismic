@@ -1,7 +1,7 @@
 package block
 
 import (
-	"github.com/SoCloz/goprismic/fragment/image"
+	"github.com/markhayden/goprismic/fragment/image"
 )
 
 // An image block

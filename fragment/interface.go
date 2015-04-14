@@ -1,7 +1,7 @@
 package fragment
 
 import (
-	"github.com/SoCloz/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/fragment/link"
 )
 
 type Interface interface {

@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/SoCloz/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/fragment/link"
 )
 
 // A date fragment (YYYY-MM-DD)

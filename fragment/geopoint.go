@@ -2,12 +2,12 @@ package fragment
 
 import (
 	"fmt"
-	"github.com/SoCloz/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/fragment/link"
 )
 
 // A Geopoint
 type GeoPoint struct {
-	Latitude float64 `json:"latitude"`
+	Latitude  float64 `json:"latitude"`
 	Longitude float64 `json:"longitude"`
 }
 

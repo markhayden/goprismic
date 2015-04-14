@@ -3,7 +3,7 @@ package fragment
 import (
 	"fmt"
 
-	"github.com/SoCloz/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/fragment/link"
 )
 
 // A number

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/SoCloz/goprismic/fragment/image"
-	"github.com/SoCloz/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/fragment/image"
+	"github.com/markhayden/goprismic/fragment/link"
 )
 
 // An image, with multiple views

@@ -3,8 +3,8 @@ package fragment
 import (
 	"fmt"
 
-	"github.com/SoCloz/goprismic/fragment/block"
-	"github.com/SoCloz/goprismic/fragment/link"
+	"github.com/markhayden/goprismic/fragment/block"
+	"github.com/markhayden/goprismic/fragment/link"
 )
 
 // A structured text fragment is a list of blocks
@@ -56,6 +56,7 @@ func (st *StructuredText) Decode(_ string, enc interface{}) error {
 
 // Formats the fragment content as html
 func (st StructuredText) AsHtml() string {
+	fmt.Println("here")
 	parentTag := ""
 	html := ""
 	for _, v := range st {

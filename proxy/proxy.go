@@ -6,7 +6,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/SoCloz/goprismic"
+	"github.com/markhayden/goprismic"
 )
 
 type Config struct {
@@ -30,7 +30,7 @@ type Proxy struct {
 
 	Config Config
 
-	lastRefresh           time.Time
+	lastRefresh time.Time
 }
 
 // Creates a proxy
@@ -51,10 +51,10 @@ func New(u, accessToken string, apiCfg goprismic.Config, cfg Config) (*Proxy, er
 	c := NewCache(cfg.CacheSize, cfg.TTL, 1.0)
 	c.revision = a.GetMasterRef()
 	p := &Proxy{
-		cache:                 c,
-		api:                   a,
-		Config:                cfg,
-		lastRefresh:           time.Now(),
+		cache:       c,
+		api:         a,
+		Config:      cfg,
+		lastRefresh: time.Now(),
 	}
 	go p.loopRefresh()
 	return p, nil
@@ -140,7 +140,7 @@ func (p *Proxy) loopRefresh() {
 				refreshChance = float32(deltaRefresh) / float32(deltaRefresh+deltaRefreshError) * p.cache.refreshChance
 			} else {
 				lastNoError++
-				refreshChance = p.Config.BaselineRefreshChance*(1.0+float32(lastNoError*(lastNoError-1))/2)
+				refreshChance = p.Config.BaselineRefreshChance * (1.0 + float32(lastNoError*(lastNoError-1))/2)
 				if refreshChance > 1.0 {
 					refreshChance = 1.0
 				}

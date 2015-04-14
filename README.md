@@ -97,7 +97,7 @@ Access to the prismic api is done using workers, limiting the number of simultan
 Documentation & links
 ---------------------
 
-See http://godoc.org/github.com/SoCloz/goprismic for the api documentation and http://godoc.org/github.com/SoCloz/goprismic/proxy for the proxy documentation.
+See http://godoc.org/github.com/markhayden/goprismic for the api documentation and http://godoc.org/github.com/markhayden/goprismic/proxy for the proxy documentation.
 
 Blog post : http://techblog.socloz.com/2013/11/introducing-goprismic-a-prismic-io-go-client-kit/
 

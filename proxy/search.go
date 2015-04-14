@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/SoCloz/goprismic"
+	"github.com/markhayden/goprismic"
 )
 
 type SearchForm struct {
