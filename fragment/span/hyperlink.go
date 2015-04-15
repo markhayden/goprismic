@@ -49,6 +49,14 @@ func (h *Hyperlink) HtmlEndTag() string {
 	return "</a>"
 }
 
+func (h *Hyperlink) MarkdownBeginTag() string {
+	return fmt.Sprintf("[")
+}
+
+func (h *Hyperlink) MarkdownEndTag() string {
+	return fmt.Sprintf("](%s)", h.Link.GetUrl())
+}
+
 func (h *Hyperlink) ResolveLinks(r link.Resolver) {
 	h.Link.Resolve(r)
 }

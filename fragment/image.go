@@ -51,4 +51,8 @@ func (i *Image) AsHtml() string {
 	return i.Main.AsHtml()
 }
 
+func (i *Image) AsMarkdown() string {
+	return i.Main.AsHtml()
+}
+
 func (i *Image) ResolveLinks(_ link.Resolver) {}

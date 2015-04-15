@@ -65,7 +65,7 @@ func decode(t string, value interface{}) (Interface, error) {
 	case "Select":
 		n = new(Text)
 	case "GeoPoint":
-		n = new(GeoPoint)	
+		n = new(GeoPoint)
 	case "Group":
 		n, err = NewGroup(value)
 	}

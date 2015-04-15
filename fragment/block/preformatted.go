@@ -17,6 +17,10 @@ func (p *Preformatted) AsHtml() string {
 	return fmt.Sprintf("<pre>%s</pre>", p.FormatHtmlText())
 }
 
+func (p *Preformatted) AsMarkdown(cnt int) string {
+	return fmt.Sprintf("<pre>%s</pre>", p.FormatMarkdownText())
+}
+
 func (p *Preformatted) ParentHtmlTag() string {
 	return ""
 }

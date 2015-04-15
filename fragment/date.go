@@ -34,4 +34,9 @@ func (d *Date) AsHtml() string {
 	return "<time>" + t.Format("2006-01-02") + "</time>"
 }
 
+func (d *Date) AsMarkdown() string {
+	t := time.Time(*d)
+	return t.Format("2006-01-02")
+}
+
 func (d *Date) ResolveLinks(_ link.Resolver) {}

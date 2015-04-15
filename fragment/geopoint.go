@@ -29,6 +29,10 @@ func (g *GeoPoint) AsText() string {
 	return fmt.Sprintf("%f,%f", g.Latitude, g.Longitude)
 }
 
+func (g *GeoPoint) AsMarkdown() string {
+	return fmt.Sprintf("%f,%f", g.Latitude, g.Longitude)
+}
+
 func (g *GeoPoint) AsHtml() string {
 	return fmt.Sprintf(`<div class="geopoint"><span class="latitude">%f</span><span class="longitude">%f</span></div>`, g.Latitude, g.Longitude)
 }

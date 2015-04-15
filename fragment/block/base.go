@@ -47,6 +47,40 @@ func (b *BaseBlock) FormatHtmlText() string {
 	return t
 }
 
+// Formats the block content as html, without enclosing tags
+func (b *BaseBlock) FormatMarkdownText() string {
+	t := html.EscapeString(b.Text)
+
+	// store one more to be able to compute offsets[len(text)]
+	offsets := make([]int, len(b.Text)+1)
+
+	// compute byte offsets for utf8 string
+	off := 0
+	index := 0
+	for k, r := range b.Text {
+		offsets[index] = k + off
+		off += len([]rune(html.EscapeString(string([]rune{r})))) - 1
+		index++
+	}
+
+	offsets[index] = len(b.Text) + off
+	for _, s := range b.Spans {
+		begin := s.MarkdownBeginTag()
+		end := s.MarkdownEndTag()
+
+		t = t[:offsets[s.GetStart()]] + begin + t[offsets[s.GetStart()]:offsets[s.GetEnd()]] + end + t[offsets[s.GetEnd()]:]
+		for i := s.GetStart(); i < s.GetEnd(); i++ {
+			offsets[i] += len(begin)
+		}
+
+		for i := s.GetEnd(); i < len(offsets); i++ {
+			offsets[i] += len(begin) + len(end)
+		}
+	}
+
+	return t
+}
+
 func (b *BaseBlock) decodeBlock(enc interface{}) error {
 	dec, ok := enc.(map[string]interface{})
 	if !ok {

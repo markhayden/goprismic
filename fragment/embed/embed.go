@@ -54,3 +54,10 @@ func (e *Embed) AsHtml() string {
 	}
 	return ""
 }
+
+func (e *Embed) AsMarkdown() string {
+	if e.Html != "" {
+		return "<div data-oembed=\"" + e.EmbedUrl + "\" data-oembed-type=\"" + strings.ToLower(e.Type) + "\" data-oembed-provider=\"" + e.ProviderName + "\">" + e.Html + "</div>"
+	}
+	return ""
+}

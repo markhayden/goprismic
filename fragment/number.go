@@ -27,4 +27,8 @@ func (n *Number) AsHtml() string {
 	return fmt.Sprintf("<span class=\"number\">%f</span>", *n)
 }
 
+func (n *Number) AsMarkdown() string {
+	return fmt.Sprintf("%f", *n)
+}
+
 func (n *Number) ResolveLinks(_ link.Resolver) {}

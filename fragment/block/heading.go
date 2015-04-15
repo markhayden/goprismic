@@ -23,6 +23,28 @@ func (h *Heading) AsHtml() string {
 		return fmt.Sprintf("<h3>%s</h3>", h.FormatHtmlText())
 	case "heading4":
 		return fmt.Sprintf("<h4>%s</h4>", h.FormatHtmlText())
+	case "heading5":
+		return fmt.Sprintf("<h4>%s</h4>", h.FormatHtmlText())
+	case "heading6":
+		return fmt.Sprintf("<h4>%s</h4>", h.FormatHtmlText())
+	}
+	return ""
+}
+
+func (h *Heading) AsMarkdown(cnt int) string {
+	switch h.Type {
+	case "heading1":
+		return fmt.Sprintf("#%s#", h.FormatMarkdownText())
+	case "heading2":
+		return fmt.Sprintf("##%s##", h.FormatMarkdownText())
+	case "heading3":
+		return fmt.Sprintf("###%s###", h.FormatMarkdownText())
+	case "heading4":
+		return fmt.Sprintf("####%s####", h.FormatMarkdownText())
+	case "heading5":
+		return fmt.Sprintf("#####%s#####", h.FormatMarkdownText())
+	case "heading6":
+		return fmt.Sprintf("######%s######", h.FormatMarkdownText())
 	}
 	return ""
 }

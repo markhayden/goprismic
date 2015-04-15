@@ -53,6 +53,10 @@ func (i *View) AsHtml() string {
 	return fmt.Sprintf("<img src=\"%s\" width=\"%d\" height=\"%d\"/>", i.Url, i.Dimensions.Width, i.Dimensions.Height)
 }
 
+func (i *View) AsMarkdown() string {
+	return fmt.Sprintf("![%s](%s)", i.Alt, i.Url)
+}
+
 func (i *View) Ratio() float64 {
 	return float64(i.Dimensions.Width) / float64(i.Dimensions.Height)
 }

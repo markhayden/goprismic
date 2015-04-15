@@ -19,6 +19,10 @@ func (e *Embed) AsHtml() string {
 	return e.Embed.AsHtml()
 }
 
+func (e *Embed) AsMarkdown() string {
+	return e.Embed.AsMarkdown()
+}
+
 func (e *Embed) AsText() string {
 	return ""
 }

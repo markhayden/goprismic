@@ -20,4 +20,12 @@ func (e *Em) HtmlEndTag() string {
 	return "</em>"
 }
 
+func (e *Em) MarkdownBeginTag() string {
+	return "*"
+}
+
+func (e *Em) MarkdownEndTag() string {
+	return "*"
+}
+
 func (e *Em) ResolveLinks(_ link.Resolver) {}

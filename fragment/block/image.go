@@ -23,6 +23,10 @@ func (i *Image) AsHtml() string {
 	return i.View.AsHtml()
 }
 
+func (i *Image) AsMarkdown(cnt int) string {
+	return i.View.AsMarkdown()
+}
+
 func (i *Image) ParentHtmlTag() string {
 	return ""
 }

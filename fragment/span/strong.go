@@ -20,4 +20,12 @@ func (s *Strong) HtmlEndTag() string {
 	return "</strong>"
 }
 
+func (s *Strong) MarkdownBeginTag() string {
+	return "**"
+}
+
+func (s *Strong) MarkdownEndTag() string {
+	return "**"
+}
+
 func (s *Strong) ResolveLinks(_ link.Resolver) {}

@@ -23,6 +23,10 @@ func (e *Embed) AsHtml() string {
 	return e.Embed.AsHtml()
 }
 
+func (e *Embed) AsMarkdown(cnt int) string {
+	return e.Embed.AsMarkdown()
+}
+
 func (e *Embed) ParentHtmlTag() string {
 	return ""
 }

@@ -17,6 +17,10 @@ func (l *ListItem) AsHtml() string {
 	return fmt.Sprintf("<li>%s</li>", l.FormatHtmlText())
 }
 
+func (l *ListItem) AsMarkdown(cnt int) string {
+	return fmt.Sprintf("%d. %s", cnt+1, l.FormatMarkdownText())
+}
+
 func (l *ListItem) ParentHtmlTag() string {
 	return "ul"
 }
@@ -32,6 +36,10 @@ func (l *OrderedListItem) Decode(enc interface{}) error {
 
 func (l *OrderedListItem) AsHtml() string {
 	return fmt.Sprintf("<li>%s</li>", l.FormatHtmlText())
+}
+
+func (l *OrderedListItem) AsMarkdown(cnt int) string {
+	return fmt.Sprintf("* %s", l.FormatMarkdownText())
 }
 
 func (l *OrderedListItem) ParentHtmlTag() string {

@@ -28,7 +28,7 @@ func (st *StructuredText) Decode(_ string, enc interface{}) error {
 		}
 		var b block.Block
 		switch dec["type"] {
-		case "heading1", "heading2", "heading3", "heading4":
+		case "heading1", "heading2", "heading3", "heading4", "heading5", "heading6":
 			b = new(block.Heading)
 		case "paragraph":
 			b = new(block.Paragraph)
@@ -56,7 +56,6 @@ func (st *StructuredText) Decode(_ string, enc interface{}) error {
 
 // Formats the fragment content as html
 func (st StructuredText) AsHtml() string {
-	fmt.Println("here")
 	parentTag := ""
 	html := ""
 	for _, v := range st {
@@ -75,6 +74,35 @@ func (st StructuredText) AsHtml() string {
 		html += fmt.Sprintf("</%s>", parentTag)
 	}
 	return html
+}
+
+// Formats the fragment content as markdown
+func (st StructuredText) AsMarkdown() string {
+	parentTag := ""
+	markdown := ""
+	count := 0
+	for _, v := range st {
+		count++
+
+		if markdown != "" {
+			markdown += "\n"
+		}
+
+		if parentTag != v.ParentHtmlTag() {
+			parentTag = v.ParentHtmlTag()
+			if parentTag != "" {
+				markdown += fmt.Sprintf("\n")
+			}
+			count = 0
+		}
+
+		markdown += v.AsMarkdown(count)
+	}
+	if parentTag != "" {
+		markdown += fmt.Sprintf("\n")
+	}
+
+	return markdown
 }
 
 // Formats the fragment content as text

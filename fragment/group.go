@@ -52,6 +52,16 @@ func (g *Group) AsHtml() string {
 	return html
 }
 
+func (g *Group) AsMarkdown() string {
+	html := ""
+	for _, v := range *g {
+		for name, fragment := range v {
+			html += fmt.Sprintf("<section data-field=\"%s\">%s</section>", name, fragment.AsHtml())
+		}
+	}
+	return html
+}
+
 func (g *Group) AsText() string {
 	text := ""
 	for _, v := range *g {

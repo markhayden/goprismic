@@ -25,6 +25,10 @@ func (l *Link) AsHtml() string {
 	return fmt.Sprintf("<a href=\"%s\">%s</a>", l.Link.GetUrl(), l.Link.GetText())
 }
 
+func (l *Link) AsMarkdown() string {
+	return fmt.Sprintf("[%s](%s)", l.Link.GetText(), l.Link.GetUrl())
+}
+
 func (l *Link) ResolveLinks(r link.Resolver) {
 	l.Link.Resolve(r)
 }
